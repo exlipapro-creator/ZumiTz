@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg: #fafafb;
+    --color-surface: #ffffff;
+    --color-surface-raised: #f2f3f5;
+    --color-border: #e4e6ea;
+    --color-text: #14161a;
+    --color-text-muted: #5b6270;
+    --color-text-faint: #9aa1ac;
+
+    /* Brand / Accent: Default Blue */
+    --color-primary: #2b4fc7;
+    --color-primary-hover: #1f3b9e;
+    --color-primary-soft: #e8ecfb;
+
+    /* Semantics */
+    --color-income: #16a34a;
+    --color-income-soft: #e7f7ed;
+    --color-expense: #e23744;
+    --color-expense-soft: #fbe9ea;
+    --color-savings: #0d9488;
+    --color-savings-soft: #e3f5f3;
+    --color-goals: #d97706;
+    --color-goals-soft: #fbefdd;
+  }
+
+  [data-accent="ocean"] {
+    --color-primary: #0d9488;
+    --color-primary-hover: #0f766e;
+    --color-primary-soft: #e3f5f3;
+  }
+
+  [data-accent="violet"] {
+    --color-primary: #7c5cd1;
+    --color-primary-hover: #6445b8;
+    --color-primary-soft: #f1ebfc;
+  }
+
+  [data-accent="pink"] {
+    --color-primary: #db2777;
+    --color-primary-hover: #be185d;
+    --color-primary-soft: #fce7f0;
+  }
+
+  [data-accent="slate"] {
+    --color-primary: #475569;
+    --color-primary-hover: #334155;
+    --color-primary-soft: #eef1f4;
+  }
+
+  /* Dark mode */
+  [data-theme="dark"],
+  .dark {
+    --color-bg: #0a0c10;
+    --color-surface: #12151b;
+    --color-surface-raised: #191d25;
+    --color-border: #262b35;
+    --color-text: #f3f4f6;
+    --color-text-muted: #9ba1ad;
+    --color-text-faint: #656c79;
+
+    --color-primary: #5679f2;
+    --color-primary-hover: #7591f5;
+    --color-primary-soft: #1a2340;
+
+    --color-income: #34d07c;
+    --color-income-soft: #103622;
+    --color-expense: #f0555f;
+    --color-expense-soft: #3a1518;
+    --color-savings: #2dd4c0;
+    --color-savings-soft: #0f332f;
+    --color-goals: #f0a93c;
+    --color-goals-soft: #3a2a0d;
+  }
+
+  [data-theme="dark"][data-accent="ocean"],
+  .dark[data-accent="ocean"] {
+    --color-primary: #2dd4c0;
+    --color-primary-hover: #5eead4;
+    --color-primary-soft: #0f332f;
+  }
+
+  [data-theme="dark"][data-accent="violet"],
+  .dark[data-accent="violet"] {
+    --color-primary: #c4b5fd;
+    --color-primary-hover: #ddd6fe;
+    --color-primary-soft: #251e42;
+  }
+
+  [data-theme="dark"][data-accent="pink"],
+  .dark[data-accent="pink"] {
+    --color-primary: #f472b6;
+    --color-primary-hover: #f9a8d4;
+    --color-primary-soft: #3a1530;
+  }
+
+  [data-theme="dark"][data-accent="slate"],
+  .dark[data-accent="slate"] {
+    --color-primary: #b8c2cc;
+    --color-primary-hover: #e2e8f0;
+    --color-primary-soft: #262d33;
+  }
+}
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-surface-raised: var(--color-surface-raised);
+  --color-border: var(--color-border);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-faint: var(--color-text-faint);
+
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-soft: var(--color-primary-soft);
+
+  --color-income: var(--color-income);
+  --color-income-soft: var(--color-income-soft);
+  --color-expense: var(--color-expense);
+  --color-expense-soft: var(--color-expense-soft);
+  --color-savings: var(--color-savings);
+  --color-savings-soft: var(--color-savings-soft);
+  --color-goals: var(--color-goals);
+  --color-goals-soft: var(--color-goals-soft);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-faint);
+}
+
+/* Numbers alignment */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Safe area insets for mobile */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Infinite ledger scroll animation */
+@keyframes ledgerScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-ledger-scroll {
+  animation: ledgerScroll 24s linear infinite;
+}
+
+.animate-ledger-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Horizontal ticker animation */
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker {
+  animation: ticker 35s linear infinite;
+}

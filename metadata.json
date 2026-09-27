@@ -1,0 +1,6 @@
+{
+  "name": "Zumi Tanzania - Usimamizi wa Fedha na Bajeti ya Nyumba",
+  "description": "Jukwaa safi na la kisasa la kusimamia mapato, matumizi, M-Pesa, benki na bajeti ya kaya nchini Tanzania.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
